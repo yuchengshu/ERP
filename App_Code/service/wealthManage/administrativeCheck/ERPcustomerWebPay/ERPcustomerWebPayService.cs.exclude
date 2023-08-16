@@ -1,0 +1,85 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Text;
+using System.IO;
+
+/// <summary>
+/// ERPcustomerWebPayService 的摘要描述
+/// </summary>
+public class ERPcustomerWebPayService
+{
+    //引用時不用再NEW
+    private static ERPcustomerWebPayService _instance = new ERPcustomerWebPayService();
+
+    //取得此類別名稱
+    string className = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.FullName;
+
+    public static ERPcustomerWebPayService Instance
+    {
+        get
+        {
+            return _instance;
+        }
+    }
+    public ERPcustomerWebPayService()
+    {
+        //
+        // TODO: 在這裡新增建構函式邏輯
+        //
+    }
+    public List<ERPcustomerWebPayEntity> getERPcustomerWebPay(getERPcustomerWebPayParamEntity gecwppe)
+    {
+        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+        log.startWrite("'keyWord' :" + gecwppe.keyWord + "'PayStatus' :" + gecwppe.PayStatus + "'U_MDEP' :" + gecwppe.U_MDEP + "'U_Num' :" + gecwppe.U_Num + "'ComID' :" + gecwppe.ComID, className, methodName);
+
+        List<ERPcustomerWebPayEntity> ecwpeList = VMCASHhgDao.Instance.getERPcustomerWebPay(gecwppe);//<==========
+        string Done_Tag = string.Empty;
+        for (var i = 0; i < ecwpeList.Count; i++)
+        {
+            if (common.isEmpty(ecwpeList[i].o_id))
+            {
+                ecwpeList[i].PayStatusName = "尚未付款";
+            }
+            else
+            {
+                if (ecwpeList[i].PayStatus == "1")
+                {
+                    ecwpeList[i].PayStatusName = "<span class='colorBlue'>付款成功</span>";
+                }
+                else
+                {
+                    ecwpeList[i].PayStatusName = "<span class='colorRed'>失敗</span>";
+                }
+            }
+            Done_Tag = ecwpeList[i].Done_Tag;
+            if (Done_Tag == "1")
+            {
+                ecwpeList[i].Done_TagName = "未簽署";
+            }
+            else if (Done_Tag == "0")
+            {
+                ecwpeList[i].Done_TagName = "<a href=https://www.hwa-guan.com.tw/file/RAPDF/" + ecwpeList[i].ContractID + ".pdf target=twcapdf><font color=blue>成功</font></a>";
+            }
+            else
+            {
+                ecwpeList[i].Done_TagName = "<font color=RED>失敗</font>";
+            }
+        }
+
+        log.endWrite("'ecwpeList' :" + ecwpeList.ToString(), className, methodName);
+        return ecwpeList;
+    }
+
+    public string deleteData(string ca_id)
+    {
+        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+        log.startWrite("'ca_id' :" + ca_id, className, methodName);
+
+        string backStr = VMCASHhgDao.Instance.deleteData(ca_id);//<==========
+
+        log.endWrite("'backStr' :" + backStr, className, methodName);
+        return backStr;
+    }
+}

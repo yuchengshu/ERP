@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendSMSwithUserData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DstAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stoptime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isLong" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data4" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSwithUserDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSwithUserDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DstAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stoptime" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isLong" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSwithUserData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DstAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stoptime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SrcCell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isLong" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data4" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSwithUserDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDyncSMSwithUserDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DstAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stoptime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SrcCell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isLong" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDyncSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSwithUserDataAndPriority">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DstAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stoptime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SrcCell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isLong" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Data4" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="HiPriority" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSwithUserDataAndPriorityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDyncSMSwithUserDataAndPriorityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSWithPriority">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DstAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stoptime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SrcCell" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isLong" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="HiPriority" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendDyncSMSWithPriorityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendDyncSMSWithPriorityResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seq_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSQueryDr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seq_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SMSQueryDrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SMSQueryDrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySMSWithSendTime">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seq_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySMSWithSendTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySMSWithSendTimeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySMSStatusByTimeRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QuerySMSStatusByTimeRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QuerySMSStatusByTimeRangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReceivedSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CellId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReceivedSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryReceivedSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReceivedSMSByTimeRange">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CellId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StartTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EndTime" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryReceivedSMSByTimeRangeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryReceivedSMSByTimeRangeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryUserPoint">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="QueryUserPointResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="QueryUserPointResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScheduleSMSCancel">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="seq_no" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ScheduleSMSCancelResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ScheduleSMSCancelResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendSMSwithUserDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMSwithUserData" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSwithUserDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSwithUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSwithUserDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSwithUserData" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSwithUserDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSwithUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendDyncSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSwithUserDataAndPrioritySoapIn">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSwithUserDataAndPriority" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSwithUserDataAndPrioritySoapOut">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSwithUserDataAndPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSWithPrioritySoapIn">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSWithPriority" />
+  </wsdl:message>
+  <wsdl:message name="SendDyncSMSWithPrioritySoapOut">
+    <wsdl:part name="parameters" element="tns:SendDyncSMSWithPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySMSSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySMS" />
+  </wsdl:message>
+  <wsdl:message name="QuerySMSSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SMSQueryDrSoapIn">
+    <wsdl:part name="parameters" element="tns:SMSQueryDr" />
+  </wsdl:message>
+  <wsdl:message name="SMSQueryDrSoapOut">
+    <wsdl:part name="parameters" element="tns:SMSQueryDrResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySMSWithSendTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySMSWithSendTime" />
+  </wsdl:message>
+  <wsdl:message name="QuerySMSWithSendTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySMSWithSendTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QuerySMSStatusByTimeRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:QuerySMSStatusByTimeRange" />
+  </wsdl:message>
+  <wsdl:message name="QuerySMSStatusByTimeRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:QuerySMSStatusByTimeRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryReceivedSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryReceivedSMS" />
+  </wsdl:message>
+  <wsdl:message name="QueryReceivedSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryReceivedSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryReceivedSMSByTimeRangeSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryReceivedSMSByTimeRange" />
+  </wsdl:message>
+  <wsdl:message name="QueryReceivedSMSByTimeRangeSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryReceivedSMSByTimeRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="QueryUserPointSoapIn">
+    <wsdl:part name="parameters" element="tns:QueryUserPoint" />
+  </wsdl:message>
+  <wsdl:message name="QueryUserPointSoapOut">
+    <wsdl:part name="parameters" element="tns:QueryUserPointResponse" />
+  </wsdl:message>
+  <wsdl:message name="ScheduleSMSCancelSoapIn">
+    <wsdl:part name="parameters" element="tns:ScheduleSMSCancel" />
+  </wsdl:message>
+  <wsdl:message name="ScheduleSMSCancelSoapOut">
+    <wsdl:part name="parameters" element="tns:ScheduleSMSCancelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="fpMsServiceSoap">
+    <wsdl:operation name="SendSMSwithUserData">
+      <wsdl:input message="tns:SendSMSwithUserDataSoapIn" />
+      <wsdl:output message="tns:SendSMSwithUserDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSwithUserData">
+      <wsdl:input message="tns:SendDyncSMSwithUserDataSoapIn" />
+      <wsdl:output message="tns:SendDyncSMSwithUserDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMS">
+      <wsdl:input message="tns:SendDyncSMSSoapIn" />
+      <wsdl:output message="tns:SendDyncSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSwithUserDataAndPriority">
+      <wsdl:input message="tns:SendDyncSMSwithUserDataAndPrioritySoapIn" />
+      <wsdl:output message="tns:SendDyncSMSwithUserDataAndPrioritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSWithPriority">
+      <wsdl:input message="tns:SendDyncSMSWithPrioritySoapIn" />
+      <wsdl:output message="tns:SendDyncSMSWithPrioritySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMS">
+      <wsdl:input message="tns:QuerySMSSoapIn" />
+      <wsdl:output message="tns:QuerySMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SMSQueryDr">
+      <wsdl:input message="tns:SMSQueryDrSoapIn" />
+      <wsdl:output message="tns:SMSQueryDrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMSWithSendTime">
+      <wsdl:input message="tns:QuerySMSWithSendTimeSoapIn" />
+      <wsdl:output message="tns:QuerySMSWithSendTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMSStatusByTimeRange">
+      <wsdl:input message="tns:QuerySMSStatusByTimeRangeSoapIn" />
+      <wsdl:output message="tns:QuerySMSStatusByTimeRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryReceivedSMS">
+      <wsdl:input message="tns:QueryReceivedSMSSoapIn" />
+      <wsdl:output message="tns:QueryReceivedSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryReceivedSMSByTimeRange">
+      <wsdl:input message="tns:QueryReceivedSMSByTimeRangeSoapIn" />
+      <wsdl:output message="tns:QueryReceivedSMSByTimeRangeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserPoint">
+      <wsdl:input message="tns:QueryUserPointSoapIn" />
+      <wsdl:output message="tns:QueryUserPointSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleSMSCancel">
+      <wsdl:input message="tns:ScheduleSMSCancelSoapIn" />
+      <wsdl:output message="tns:ScheduleSMSCancelSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="fpMsServiceSoap" type="tns:fpMsServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMSwithUserData">
+      <soap:operation soapAction="http://tempuri.org/SendSMSwithUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSwithUserData">
+      <soap:operation soapAction="http://tempuri.org/SendDyncSMSwithUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMS">
+      <soap:operation soapAction="http://tempuri.org/SendDyncSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSwithUserDataAndPriority">
+      <soap:operation soapAction="http://tempuri.org/SendDyncSMSwithUserDataAndPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSWithPriority">
+      <soap:operation soapAction="http://tempuri.org/SendDyncSMSWithPriority" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMS">
+      <soap:operation soapAction="http://tempuri.org/QuerySMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSQueryDr">
+      <soap:operation soapAction="http://tempuri.org/SMSQueryDr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMSWithSendTime">
+      <soap:operation soapAction="http://tempuri.org/QuerySMSWithSendTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMSStatusByTimeRange">
+      <soap:operation soapAction="http://tempuri.org/QuerySMSStatusByTimeRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReceivedSMS">
+      <soap:operation soapAction="http://tempuri.org/QueryReceivedSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReceivedSMSByTimeRange">
+      <soap:operation soapAction="http://tempuri.org/QueryReceivedSMSByTimeRange" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserPoint">
+      <soap:operation soapAction="http://tempuri.org/QueryUserPoint" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleSMSCancel">
+      <soap:operation soapAction="http://tempuri.org/ScheduleSMSCancel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="fpMsServiceSoap12" type="tns:fpMsServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendSMSwithUserData">
+      <soap12:operation soapAction="http://tempuri.org/SendSMSwithUserData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSwithUserData">
+      <soap12:operation soapAction="http://tempuri.org/SendDyncSMSwithUserData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendDyncSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSwithUserDataAndPriority">
+      <soap12:operation soapAction="http://tempuri.org/SendDyncSMSwithUserDataAndPriority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDyncSMSWithPriority">
+      <soap12:operation soapAction="http://tempuri.org/SendDyncSMSWithPriority" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMS">
+      <soap12:operation soapAction="http://tempuri.org/QuerySMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SMSQueryDr">
+      <soap12:operation soapAction="http://tempuri.org/SMSQueryDr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMSWithSendTime">
+      <soap12:operation soapAction="http://tempuri.org/QuerySMSWithSendTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QuerySMSStatusByTimeRange">
+      <soap12:operation soapAction="http://tempuri.org/QuerySMSStatusByTimeRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReceivedSMS">
+      <soap12:operation soapAction="http://tempuri.org/QueryReceivedSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryReceivedSMSByTimeRange">
+      <soap12:operation soapAction="http://tempuri.org/QueryReceivedSMSByTimeRange" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="QueryUserPoint">
+      <soap12:operation soapAction="http://tempuri.org/QueryUserPoint" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ScheduleSMSCancel">
+      <soap12:operation soapAction="http://tempuri.org/ScheduleSMSCancel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="fpMsService">
+    <wsdl:port name="fpMsServiceSoap" binding="tns:fpMsServiceSoap">
+      <soap:address location="http://ep1.ite2.com.tw/scripts/fpmsservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="fpMsServiceSoap12" binding="tns:fpMsServiceSoap12">
+      <soap12:address location="http://ep1.ite2.com.tw/scripts/fpmsservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

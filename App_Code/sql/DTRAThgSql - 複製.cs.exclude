@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.Text;
+
+/// <summary>
+/// DTRAThgSql 的摘要描述
+/// </summary>
+public class DTRAThgSql
+{
+    //取得此類別名稱
+    string className = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.FullName;
+
+    private static DTRAThgSql _instanct = new DTRAThgSql();
+    public static DTRAThgSql Instance
+    {
+        get
+        {
+            return _instanct;
+        }
+    }
+    public DTRAThgSql()
+    {
+        //
+        // TODO: 在這裡新增建構函式邏輯
+        //
+    }
+
+    public List<chargeDetailEntity> getChargeDetailList(string connectionStrings, string commandText)
+    {
+        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+        string paramFormat = "'connectionStrings' : {0}, 'commandText' : {1}";
+        StringBuilder sb = new StringBuilder();
+        sb.Append(string.Format(paramFormat, connectionStrings, commandText));
+        log.startWrite(sb.ToString(), className, methodName);
+        //======================================================================================================================以上為log
+        List<chargeDetailEntity> cdeList = new List<chargeDetailEntity>();
+
+        //從資料庫把資料撈出來*************************************************************************************************start
+        using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings[connectionStrings].ToString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = commandText;
+            chargeDetailEntity cde = null;
+            using (SqlDataReader sr = cmd.ExecuteReader())
+            {
+                while (sr.Read())
+                {
+                    cde = new chargeDetailEntity();
+                    cde.DT_ID = sr[0].ToString().Trim();
+                    cde.Pay_tag = sr[1].ToString().Trim();
+                    cde.Account_Date = sr[2].ToString().Trim();
+                    cde.MC = sr[3].ToString().Trim();
+                    cde.MC_Name = sr[4].ToString().Trim();
+                    cde.Account_Money = sr[5].ToString().Trim();
+                    cde.Pay_Type = sr[6].ToString().Trim();
+                    cde.T_ID = sr[7].ToString().Trim();
+                    cde.T_Com = sr[8].ToString().Trim();
+                    cdeList.Add(cde);
+                }
+            }
+        }
+        //從資料庫把資料撈出來*************************************************************************************************end
+        log.endWrite(cdeList.ToString(), className, methodName);
+        return cdeList;
+    }
+
+
+    public List<chargeDetailEntity> getChargeDetail(string connectionStrings, string commandText)
+    {
+        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+        string paramFormat = "'connectionStrings' : {0}, 'commandText' : {1}";
+        StringBuilder sb = new StringBuilder();
+        sb.Append(string.Format(paramFormat, connectionStrings, commandText));
+        log.startWrite(sb.ToString(), className, methodName);
+        //======================================================================================================================以上為log
+        List<chargeDetailEntity> cdeList = new List<chargeDetailEntity>();
+        chargeDetailEntity cde = null;
+        //從資料庫把資料撈出來*************************************************************************************************start
+        using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings[connectionStrings].ToString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = commandText;
+
+            using (SqlDataReader sr = cmd.ExecuteReader())
+            {
+                while (sr.Read())
+                {
+                    cde = new chargeDetailEntity();
+                    cde.Pay_Type = sr[0].ToString().Trim();
+                    cde.Account_Money = sr[1].ToString().Trim();
+                    cde.MC_Name = sr[2].ToString().Trim();
+                    cdeList.Add(cde);
+                }
+            }
+        }
+        //從資料庫把資料撈出來*************************************************************************************************end
+        log.endWrite("'cdeList' :" + cdeList.ToString(), className, methodName);
+        return cdeList;
+    }
+}

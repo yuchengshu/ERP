@@ -1,0 +1,138 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data.SqlClient;
+using System.Web.Configuration;
+using System.Text;
+
+/// <summary>
+/// MCOTFhgSql 的摘要描述
+/// </summary>
+public class MCOTFhgSql
+{
+    //取得此類別名稱
+    string className = System.Reflection.MethodBase.GetCurrentMethod().DeclaringType.FullName;
+
+    private static MCOTFhgSql _instanct = new MCOTFhgSql();
+    public static MCOTFhgSql Instance
+    {
+        get
+        {
+            return _instanct;
+        }
+    }
+    public MCOTFhgSql()
+    {
+        //
+        // TODO: 在這裡新增建構函式邏輯
+        //
+    }
+
+    public businessConnectionEntity getBusinessConnectionDetail(string connectionStrings, string commandText)
+    {
+        string methodName = System.Reflection.MethodBase.GetCurrentMethod().Name;
+        string paramFormat = "'connectionStrings' : {0}, 'commandText' : {1}";
+        StringBuilder sb = new StringBuilder();
+        sb.Append(string.Format(paramFormat, connectionStrings, commandText));
+        log.startWrite(sb.ToString(), className, methodName);
+        //======================================================================================================================以上為log
+        businessConnectionEntity bce = new businessConnectionEntity();
+        //從資料庫把資料撈出來*************************************************************************************************start
+        using (SqlConnection conn = new SqlConnection(WebConfigurationManager.ConnectionStrings[connectionStrings].ToString()))
+        {
+            conn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = commandText;
+            using (SqlDataReader sr = cmd.ExecuteReader())
+            {
+                while (sr.Read())
+                {
+                    bce.f_id = sr[0].ToString().Trim();
+                    bce.M_ID = sr[1].ToString().Trim();
+                    bce.MP_ID = sr[2].ToString().Trim();
+                    bce.MP_Item = sr[3].ToString().Trim();
+                    bce.CF_Item = sr[4].ToString().Trim();
+                    bce.Results_Item = sr[5].ToString().Trim();
+                    bce.Paymoney = sr[6].ToString().Trim();
+                    bce.Paymoney1 = sr[7].ToString().Trim();
+                    bce.Paymoney2 = sr[8].ToString().Trim();
+                    bce.T_PType = sr[9].ToString().Trim();
+                    bce.T_PType1 = sr[10].ToString().Trim();
+                    bce.T_PType2 = sr[11].ToString().Trim();
+                    bce.T_Type = sr[12].ToString().Trim();
+                    bce.PT_Item = sr[13].ToString().Trim();
+                    bce.V_ID = sr[14].ToString().Trim();
+                    bce.V_Name = sr[15].ToString().Trim();
+                    bce.V_ID1 = sr[18].ToString().Trim();
+                    bce.V_Name1 = sr[19].ToString().Trim();
+                    bce.VD_Paymoney = sr[20].ToString().Trim();
+                    bce.VD_Type = sr[21].ToString().Trim();
+                    bce.Special1_userName = sr[23].ToString().Trim();
+                    bce.T_accountmoney1 = sr[25].ToString().Trim();
+                    bce.Special2_userName = sr[27].ToString().Trim();
+                    bce.T_accountmoney2 = sr[29].ToString().Trim();
+                    bce.Special3_userName = sr[31].ToString().Trim();
+                    bce.T_accountmoney3 = sr[33].ToString().Trim();
+                    bce.begindate_Date = sr[34].ToString().Trim();
+                    bce.enddate_Date = sr[35].ToString().Trim();
+                    bce.CellPhone = sr[36].ToString().Trim();
+                    bce.Fax = sr[37].ToString().Trim();
+                    bce.Mess = sr[38].ToString().Trim();
+                    bce.Media = sr[39].ToString().Trim();
+                    bce.ATM = sr[40].ToString().Trim();
+                    bce.INV_ITEM = sr[42].ToString().Trim();
+                    bce.INV_Open_Item = sr[43].ToString().Trim();
+                    bce.T_Ivo = sr[44].ToString().Trim();
+                    bce.COMNAME = sr[45].ToString().Trim();
+                    bce.INV_ITEM_UnifyNum = sr[46].ToString().Trim();
+                    bce.Attach_Name = sr[48].ToString().Trim();
+                    bce.CMonth = sr[50].ToString().Trim();
+                    bce.Other = sr[51].ToString().Trim();
+                    bce.T_ID = sr[52].ToString().Trim();
+                    bce.T_Name = sr[53].ToString().Trim();
+                    bce.D_MP = sr[54].ToString().Trim();
+                    bce.D_Item = sr[55].ToString().Trim();
+                    bce.D_Type = sr[56].ToString().Trim();
+                    bce.D_Paymoney = sr[57].ToString().Trim();
+                    bce.D_tag = sr[58].ToString().Trim();
+                    bce.DSdate = sr[59].ToString().Trim();
+                    bce.DEdate = sr[60].ToString().Trim();
+                    bce.B_ID = sr[61].ToString().Trim();
+                    bce.B_Name = sr[62].ToString().Trim();
+                    bce.B_Paymoney = sr[63].ToString().Trim();
+                    bce.S_tag = sr[64].ToString().Trim();
+                    bce.S_ID = sr[65].ToString().Trim();
+                    bce.S_Name = sr[66].ToString().Trim();
+                    bce.S_Paymoney = sr[67].ToString().Trim();
+                    bce.C_tag = sr[69].ToString().Trim();
+                    bce.U_Agent_Name = sr[71].ToString().Trim();
+                    bce.U_Leader = sr[73].ToString().Trim();
+                    bce.U_LeaderName = sr[74].ToString().Trim();
+                    bce.L_Ps = sr[76].ToString().Trim();
+                    bce.U_LeaderStatus = sr[77].ToString().Trim();
+                    bce.U_LeaderStatusTime = sr[78].ToString().Trim();
+                    bce.EX_Name = sr[80].ToString().Trim();
+                    bce.EX_Ps = sr[82].ToString().Trim();
+                    bce.EX_Status = sr[83].ToString().Trim();
+                    bce.EX_StatusTime = sr[84].ToString().Trim();
+                    bce.EX_LeaderName = sr[86].ToString().Trim();
+                    bce.EXL_Ps = sr[88].ToString().Trim();
+                    bce.EX_LeaderStatus = sr[89].ToString().Trim();
+                    bce.EX_LeaderStatusTime = sr[90].ToString().Trim();
+                    bce.PS = sr[91].ToString().Trim();
+                    bce.Obj = sr[92].ToString().Trim();
+                    bce.F_Status = sr[93].ToString().Trim();
+                    bce.CCard_4Num = sr[94].ToString().Trim();
+                    bce.add_user = sr[97].ToString().Trim();
+                    bce.M_Name = sr[100].ToString().Trim();
+                    bce.Light_status = sr[101].ToString().Trim();
+                }
+            }
+        }
+        //從資料庫把資料撈出來*************************************************************************************************end
+        log.endWrite("'bce' : "+ bce.ToString(), className, methodName);
+        return bce;
+    }
+}

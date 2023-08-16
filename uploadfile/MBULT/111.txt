@@ -1,0 +1,90 @@
+<div class="col-md-6">
+<div class="box box-danger">
+<div class="box-header">
+  <i class="fa fa-list-alt"></i>    
+  <h3 class="box-title">公佈欄</h3>
+  <div class="box-tools pull-right" data-toggle="tooltip" title="" data-original-title="看更多">
+      <div class="btn-group" data-toggle="btn-toggle">
+        <a href="infro_001.asp"><button type="button" class="btn btn-danger btn-sm "><i class="fa fa-bars"></i></button></a>
+      </div>
+    </div>
+</div><!-- /.box-header -->
+<div class="box-body">
+
+<table class="table table-bordered table-condensed">
+		                   
+								  
+		                    <tbody><tr class="active"> 
+		                      <th style="width: 5%"> </th>
+		                      <th style="width: 55%">標題</th>
+		                      <th style="width: 40%">發佈時間</th>
+		                    </tr>
+		                    
+		                    <tr> 
+		                      <th class="text-center">1</th>
+              							
+						
+							
+		                      <th><a class="BlueLink10" href="../public/mbult/MBULT_Detail.asp?adver_id=20180409150446_6698">4/13(五)晚上19:00欣葉日本料理聚餐</a></th>
+		                      <th>2018/4/9 下午 03:05:32</th>		                      
+		                     
+          								 
+          						  	
+		                    </tr>
+		                    
+		                    <tr> 
+		                      <th class="text-center">2</th>
+              							
+						
+							
+		                      <th><a class="BlueLink10" href="../public/mbult/MBULT_Detail.asp?adver_id=20180409150320_3501">4/13(五)晚上19:00欣葉日本料理聚餐</a></th>
+		                      <th>2018/4/9 下午 03:04:30</th>		                      
+		                     
+          								 
+          						  	
+		                    </tr>
+		                    
+		                    <tr> 
+		                      <th class="text-center">3</th>
+              							
+						
+							
+		                      <th><a class="BlueLink10" href="../public/mbult/MBULT_Detail.asp?adver_id=20180403181230_1300"><font color="black"><b>公告：</b></font>10704獎勵案</a></th>
+		                      <th>2018/4/3 下午 06:13:47</th>		                      
+		                     
+          								 
+          						  	
+		                    </tr>
+		                    
+		                    <tr> 
+		                      <th class="text-center">4</th>
+              							
+						
+							
+		                      <th><a class="BlueLink10" href="../public/mbult/MBULT_Detail.asp?adver_id=20180402190233_2576"><font color="black"><b>公告：</b></font>四月份獎勵案</a></th>
+		                      <th>2018/4/2 下午 07:02:56</th>		                      
+		                     
+          								 
+          						  	
+		                    </tr>
+		                    
+		                    <tr> 
+		                      <th class="text-center">5</th>
+              							
+						
+							
+		                      <th><a class="BlueLink10" href="../public/mbult/MBULT_Detail.asp?adver_id=20180331131811_0722">鴻海活動</a></th>
+		                      <th>2018/3/31 下午 01:19:18</th>		                      
+		                     
+          								 
+          						  	
+		                    </tr>
+		                              								  
+		                  
+								  
+
+</tbody></table>
+
+</div><!-- /.box-body -->   
+</div><!-- /.box -->  
+</div>

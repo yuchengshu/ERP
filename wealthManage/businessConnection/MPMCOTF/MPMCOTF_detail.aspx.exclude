@@ -1,0 +1,160 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="MPMCOTF_detail.aspx.cs" Inherits="wealthManage_businessConnection_MPMCOTF" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div class="content-wrapper" style="min-height: 616px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Main row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="box box-danger">
+                        <div class="box-header">
+                            <i class="fa fa-list-alt"></i>
+                            <h1 class="box-title"><b>ERP &gt; 財富管理部 &gt; 業務聯絡單</b> </h1>
+                            <div class="box-tools pull-right" data-toggle="tooltip" title="" data-original-title="">
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <table class="table table-hover" id="">
+                                <thead id="">
+                                    <tr class="active">
+                                        <th class="" colspan="1">
+                                            <select class="form-control getMCOTFListFuc" id="CF_ITem">
+                                                <option value="">請選擇種類</option>
+                                            </select>
+                                        </th>
+                                        <th class="" colspan="1">
+                                            <select class="form-control" id="F_Status">
+                                                <option value="0">不限</option>
+                                                <option value="1" selected>處理中</option>
+                                                <option value="3">已完成</option>
+                                                <option value="2">處理失敗</option>
+                                            </select>
+                                        </th>
+                                        <th class="" colspan="1">
+                                            <input type="text" name="message" placeholder="查尋關鍵字..." class="form-control" id="keyWord">
+                                        </th>
+                                        <th class="" colspan="1">
+                                            <span class="input-group-btn marginLeft">
+                                                <button type="button" class="btn btn-info btn-flat qPer" id="search">查詢</button>
+                                            </span>
+                                        </th>
+                                        <th class="" colspan="1"></th>
+                                        <th class="" colspan="1"></th>
+                                        <th class="" colspan="1"></th>
+                                        <th class="" colspan="1"></th>
+                                        <th class="" colspan="1"></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                            <table class="table table-hover" id="businessConnectionTab">
+                                <thead id="businessConnectionThead">
+                                </thead>
+                                <tbody id="businessConnectionTb">
+                                </tbody>
+
+                            </table>
+                            <div style="text-align: center">
+                                <div id="pageBar" style="margin: 0 auto;"></div>
+
+                            </div>
+
+                        </div>
+                        <!--/.box-body-->
+
+                    </div>
+                    <!--/.box-->
+
+                </div>
+            </div>
+            <!-- /.row (main row) -->
+
+        </section>
+        <!-- /.content -->
+
+    </div>
+    <script src="<%=getRelativePath()%>js/MasterPage.js" type="text/javascript"></script>
+    <script src="<%=getRelativePath()%>js/pageList/businessConnectionPageList.js" type="text/javascript"></script>
+    <script>
+        var MPMCOTFHandlerUrl_G = "MPMCOTFHandler.ashx";
+        //var CustomerManageHandlerUrl_G = "/wealthManage/customerManage/MMBER/customerManageHandler.ashx";
+        var MPMCOTFHListJson_G = undefined;
+        var MENU_no_G = "<%=getMENU_no()%>";
+        var U_Num_M = "<%=getU_Num()%>";
+        <%--var CustomerDetailMENU_no_G = "<%=getCustomerDetailMENU_no()%>";--%>
+        var MPMCOTFHMENU_no_G = "<%=getMPMCOTFHMENU_no()%>";
+        var deleteCustomerDataFuc = function () {
+            /* var mid = attr_M(this,"M_ID");
+             var r = confirm("刪除後資料將無法恢復，確定刪除?");
+             if (r == true) {
+                 var data = "M_ID=" + mid + "&action=deleteCustomerData";
+                 var success = function (back) {
+                     Log_M("deleteCustomerData back=" + back);
+                     location.reload();
+                 };
+                 ajax_M(CustomerManageHandlerUrl_G, data, success);
+             } */
+        };
+
+        //取得業聯單列表
+        var getBusinessConnectionList = function () {
+            //alert('取得業聯單列表');
+            var CF_ITem = val_M("#CF_ITem");
+            var F_Status = val_M("#F_Status");
+            var keyWord = val_M("#keyWord");
+            var data = "CF_ITem=" + CF_ITem + "&F_Status=" + F_Status + "&keyWord=" + keyWord + "&U_MDEP=" + U_MDEP_M + "&U_Num=" + U_Num_M + "&action=getBusinessConnectionList";
+            var success = function (back) {
+                var json = jsonParse_M(back);
+                businessConnectionListJson_G = json;
+                $.each(json, function (i, v) {
+                    $.each(emplistJson_M, function (ii, vv) {
+                        if (v.MP_ID == vv.U_Num) {
+                            json[i].MP_IDName = vv.empName;
+                        }
+                        if (v.add_user == vv.U_Num) {
+                            json[i].add_userName = vv.empName;
+                            json[i].addUserComIDName = (vv.ComLand.split('-'))[1];
+                        }
+                    });
+                });
+                //製作業聯單table內容
+                $businessConnectionPageList.Table.makeTbody("#businessConnectionTb", json, 10, "#pageBar", deleteCustomerDataFuc);
+            };
+            ajax_M(MPMCOTFHandlerUrl_G, data, success);
+        };
+
+        //進行頁面處理===============================================start
+        var startThisPage = function () {
+            //取得種類列表HtmlTagOption列表
+            $Common.MITEM.getListHtmlTagOption(CommonHandlerUrl_M, ".getMCOTFListFuc", "MCOTF", "option");
+            //製作table表頭
+            var itemNameArr = ["單號", "件別", "燈號", "聯絡單種類", "分析師", "會員姓名", "提案人", "提案日期", "狀態", "簽核狀態", "細", "刪"];
+            var itemClassNameArr = ["textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter", "textAlignCenter"];
+            $businessConnectionPageList.Table.makeThead("#businessConnectionThead", emptyValue_M, "bgBlue", itemNameArr, itemClassNameArr);
+            $Common.MITEM.getListHtmlTagOption(CommonHandlerUrl_M, ".getMCOTFListFuc", "CF_ITem", "option");
+            //取得業聯單列表
+            getBusinessConnectionList();
+            onClick_M("#search", getBusinessConnectionList);
+            //設定權限
+            setPermission_M();
+        };
+        //進行頁面處理===============================================end
+
+        $(function () {
+            //取得種類列表HtmlTagOption列表
+            $Common.MITEM.getListHtmlTagOption(CommonHandlerUrl_M, ".getMCOTFListFuc", "MCOTF", "option");
+            $Common.MITEM.getBusinessConnectionList(CommonHandlerUrl_M, ".getMCOTFListFuc", "CF_ITem", "option");
+            //查看使用者權限
+            getUserAuthority_M(startThisPage);
+        })
+    </script>
+</asp:Content>
+

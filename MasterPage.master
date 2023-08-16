@@ -1,0 +1,1320 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage"%>
+
+<!DOCTYPE html>
+
+<html><head>
+    <!--<meta charset="UTF-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>華冠投顧ERP</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.2 -->
+    <link href="<%=getRelativePath()%>bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">    
+    <!-- FontAwesome 4.3.0 -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Ionicons 2.0.0 -->
+    <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css">    
+    <!-- Theme style -->
+    <link href="<%=getRelativePath()%>dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins 
+         folder instead of downloading all of them to reduce the load. -->
+    <link href="<%=getRelativePath()%>dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css">
+    <!-- iCheck -->
+    <link href="<%=getRelativePath()%>plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css">
+    <!-- Morris chart -->
+    <link href="<%=getRelativePath()%>plugins/morris/morris.css" rel="stylesheet" type="text/css">
+    <!-- jvectormap -->
+    <link href="<%=getRelativePath()%>plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css">
+    <!-- Date Picker -->
+    <link href="<%=getRelativePath()%>plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css">
+    <!-- Daterange picker -->
+    <link href="<%=getRelativePath()%>plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link href="<%=getRelativePath()%>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css">
+    <link href="<%=getRelativePath()%>plugins/jQueryUI/CSS/jquery-ui-1.10.4.custom.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+  <style type="text/css">
+        #addCustomerDataTb td {
+            border-right:1px solid #ddd;
+        }
+        
+        .bgYellow {
+            background-color:#FFFFBB;
+        }
+        .bgBlue {
+            background-color:#CCEEFF;
+        }
+        .bgGray {
+            background-color:#DDDDDD;
+        }
+        .bgGrayf4f4f4 {
+            background-color:#f4f4f4;
+        }
+        .borderGray {
+            border:2px solid #f4f4f4;
+        }
+        #clear {
+            margin-left:10px;
+        }
+        .closeBtn {
+            background-color:#f4f4f4;
+            color:black;
+        }
+        .colorRed {
+            color:red;
+        }
+        .colorYellow {
+            color: gold;
+        }
+        .colorGreen {
+            color:forestgreen;
+        }
+        .colorBlue {
+            color:blue;
+        }
+        #detailHead {
+            font-size:20px;
+        }
+        .detailHead {
+             background-color :#DCDCDC	;
+        }
+        .detail {
+             border:1px solid #DCDCDC;
+             border-top-color:#DCDCDC;
+             margin-top:10px;
+             margin-bottom:40px
+        }
+        .divBorder {
+           border:2px solid #f4f4f4;
+           margin-bottom:10px;
+        }
+        .fontSize18{
+            font-size:18px;
+        }
+        .fontWeightBold {
+            font-weight:bold;
+        }
+        .inputSearch{
+            display: inline-block; width:110px;margin-right:5px;
+        }
+        .inputSearchWidth55{
+            display: inline-block; width:55px;margin-right:5px;
+        }
+        .inputSearchWidth102{
+            display: inline-block; width:102px;margin-right:5px;
+        }
+        .inputSearch1{
+            display: inline-block; width:70px;margin-right:5px;
+        }
+        .inputSearch2{
+            display: inline-block; width:150px;margin-right:5px;
+        }
+        .inputSearch3{
+            display: inline-block; width:170px;margin-right:5px;
+        }
+        .inputSearch4{
+            display: inline-block; width:110px;margin-right:5px;
+        }
+
+        .jqstooltip { position: absolute;left: 0px;top: 0px;visibility: hidden;background: rgb(0, 0, 0) transparent;background-color: rgba(0,0,0,0.6);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color: white;font: 10px arial, san serif;text-align: left;white-space: nowrap;padding: 5px;border: 1px solid white;z-index: 10000;}
+        .jqsfield { color: white;font: 10px arial, san serif;text-align: left;}
+        .leftSideWhite {
+            border-right:1px solid white;
+        }
+        .margin10 {
+            margin:1px;
+        }
+        .marginTop5 {
+            margin-top:5px;
+        }
+        .marginTop10 {
+            margin-top:10px;
+        }
+        .marginTop25 {
+            margin-top:25px;
+        }
+        .marginTop30 {
+            margin-top:30px;
+        }
+        .marginRight0 {
+            margin-right:0px;
+        }
+        .marginRight {
+            margin-right:10px;
+        }
+        .marginRight10 {
+            margin-right:10px;
+        }
+        .marginRight20 {
+            margin-right:20px;
+        }
+        .marginLeft {
+            margin-left:10px;
+        }
+        .marginTop-27 {
+             margin-top:-27px;
+        }
+        .marginTop-130 {
+             margin-top:-130px;
+        }
+
+        .marginLeftRight10 {
+            margin-left:10px;
+            margin-right:10px;
+        }
+        .marginBottom5 {
+            margin-bottom:5px;
+        }
+        .marginBottom10 {
+            margin-bottom:10px;
+        }
+        .marginBottom-7 {
+            margin-bottom:-7PX;
+        }
+        #pageBar {
+            margin-top:10px;
+            margin-right :10px;
+            margin-left :10px;
+        }
+        .pageList {
+            margin :5px;
+            padding :5px;
+            font-size:15px;
+        }
+      .paddingRight14 {
+        padding-right :14px;
+      }
+        .pageSpan {
+             display: inline-block; width:150px;margin-left:280px;
+        }
+        .spaceCenter {
+	        margin-top: 5%;
+        }
+        .spaceCenter1 {
+           margin-top: 15px;
+        }
+        .startHide {
+            display:none;
+        }
+        .span1{
+            float: left;
+            width: 33%;
+        }
+        .span2{
+            float: left;
+            width: 33%;
+          }
+        .span3{
+            float: left;
+            width: 33%;
+          }
+        .span4{
+            margin-left:72%;
+            width: 33%;
+        }
+        .tabDiv {
+          margin-bottom:20px;
+          margin-left:20px;
+          margin-right:20px;
+          margin-top:5px;
+        }
+        .tabChangeDiv {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            margin-bottom:100px;
+        }
+        .tabDivMargin4 {
+          margin-left:20px;
+          margin-right:20px;
+        }
+        .tabDivMargin5 {
+          margin-left:20px;
+          margin-right:20px;
+          padding-top:15px;
+        }
+        .textAlignCenter{
+            text-align: center;
+        }
+        .textAlignLeft{
+            text-align: left;
+        }
+        .textAlignRight{
+          text-align: right;
+        }
+        .textAlignCenter,option {
+            text-align:center;
+        }
+        .titleBottomBorder {
+            border-bottom:2px solid #f4f4f4;
+        }
+        .titleTopBorder {
+            border-top:2px solid #f4f4f4;
+        }
+        .width15percent {
+            width:15%;
+        }
+        .width20percent {
+            width:20%;
+        }
+        .width12percent {
+            width:12%;
+        }
+        .width10percent {
+            width:10%;
+        }
+        .width5percent {
+            width:5%;
+        }
+        .width50percent {
+            width:20%;
+        }
+        .width33percent {
+            width:33%;
+        }
+        .width70px {
+            width:70px;
+        }
+
+  
+        
+        
+
+  </style></head>
+  <body style="font-family:Microsoft JhengHei;" class="skin-blue">
+    <!-- jQuery 2.1.3 -->
+    <script src="<%=getRelativePath()%>plugins/jQuery/jQuery-2.1.3.min.js"></script>
+    <!-- jQuery 2.1.3 -->
+    <script src="<%=getRelativePath()%>plugins/jQueryUI/jquery.blockUI.js"></script>
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="<%=getRelativePath()%>js/HG.js" type="text/javascript"></script>
+    <script src="<%=getRelativePath()%>js/common/Common.js" type="text/javascript"></script> 
+    <script src="<%=getRelativePath()%>js/common/CommonTool.js" type="text/javascript"></script> 
+       <script src="<%=getRelativePath()%>js/tool/tool.js" type="text/javascript"></script>
+    <script src="<%=getRelativePath()%>js/MasterPage.js" type="text/javascript"></script> 
+     
+    <div class="wrapper">
+      
+      
+      <!--正上方bar start-------------------------------------------------------------------------------------------------------------------------------->
+      <header class="main-header">
+        <!-- Logo -->
+        <a href="" class="logo" id="masterTop"><b>華冠投顧</b>ERP</a>
+        <!-- Header Navbar: style can be found in header.less -->
+        <nav class="navbar navbar-static-top" role="navigation">
+          <!-- Sidebar toggle button-->
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            <span class="sr-only">Toggle navigation</span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                                    
+              <!-- Messages: style can be found in dropdown.less-->
+             <!--  <li class="dropdown messages-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-envelope-o"></i>
+                  <span class="label label-success">1</span>
+                </a>                  
+                <ul class="dropdown-menu">
+                  <li class="header">你有 1 封新郵件</li>
+                  <li>
+              
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+                      <li>
+                        <a href="#">
+                          <div class="pull-left">
+                            <img src="/img/user/B0704161.jpg" class="img-circle" alt="User Image">
+                          </div>
+                          <h4>
+                              「藍世雨」
+                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                          </h4>
+                          <p>「藍世雨」2015/03/25 09:00:00請假單-請點選進入簽核</p>
+                        </a>
+                      </li>
+                      
+                    </ul><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                  </li>
+                  <li class="footer"><a href="#">查看所有郵件</a></li>
+                </ul>
+              </li>-->
+              <!-- Notifications: style can be found in dropdown.less -->
+              <!-- <li class="dropdown notifications-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-bell-o"></i>
+                  <span class="label label-warning">10</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 10 notifications</li>
+                  <li>
+                  
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the page and may cause design problems
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-users text-red"></i> 5 new members joined
+                        </a>
+                      </li>
+
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fa fa-user text-red"></i> You changed your username
+                        </a>
+                      </li>
+                    </ul><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                  </li>
+                  <li class="footer"><a href="#">看全部</a></li>
+                </ul>
+              </li>-->
+              <!-- Tasks: style can be found in dropdown.less -->
+              <!-- <li class="dropdown tasks-menu">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <i class="fa fa-flag-o"></i>
+                  <span class="label label-danger">9</span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="header">You have 9 tasks</li>
+                  <li>
+             
+                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 200px;"><ul class="menu" style="overflow: hidden; width: 100%; height: 200px;">
+                      <li>
+                        <a href="#">
+                          <h3>
+                            Design some buttons
+                            <small class="pull-right">20%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">20% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <h3>
+                            Create a nice theme
+                            <small class="pull-right">40%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-green" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">40% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <h3>
+                            Some task I need to do
+                            <small class="pull-right">60%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-red" style="width: 60%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">60% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <h3>
+                            Make beautiful transitions
+                            <small class="pull-right">80%</small>
+                          </h3>
+                          <div class="progress xs">
+                            <div class="progress-bar progress-bar-yellow" style="width: 80%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <span class="sr-only">80% Complete</span>
+                            </div>
+                          </div>
+                        </a>
+                      </li>
+                    </ul><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+                  </li>
+                  <li class="footer">
+                    <a href="#">View all tasks</a>
+                  </li>
+                </ul>
+              </li>-->
+              <!-- User Account: style can be found in dropdown.less -->
+             <li class="dropdown messages-menu"> 
+               <a href="/wealthManage/Line/Line/line.aspx?MENU_no=19">LINE</a>   
+              </li>
+              <li class="dropdown messages-menu">
+                <a id="openExtensionDialog" class="getExtensionTable" href="javascript:void(0)">分機表</a>      
+              </li>
+              <li class="dropdown user user-menu">
+                <a href="../../../attendanceRecord.aspx">
+                  <span class="hidden-xs">員編 :</span>
+                  <span class="hidden-xs" ><%=getU_Num()%></span>
+                  <span class="hidden-xs">姓名 :</span>
+                    <span class="hidden-xs"><%=getU_Name()%></span>
+                  <span class="hidden-xs">部門 :</span>
+                    <span class="hidden-xs"><%=getU_MDEPname()%></span>
+                </a>
+               <!-- <ul class="dropdown-menu">
+           
+                  <li class="user-header">
+                    <img src="/img/user/B0704161.jpg" class="img-circle" alt="User Image">
+                    <p>
+                      王志豪 - 資訊部 副理
+                      <small>1980.03.10</small>
+                    </p>
+                  </li>
+                
+                  <li class="user-body">
+                    <div class="col-xs-6 text-center">
+                      <a href="\User\REGST\REGST_List.asp" target="REGST">簽到表</a>
+                    </div>
+                   
+                    <div class="col-xs-6 text-center">
+                      <a href="#">系統表</a>
+                    </div>
+                  </li>
+                 
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <a href="#" class="btn btn-default btn-flat">基本資料</a>
+                    </div>
+                  
+                    <div class="pull-right">
+                      <a href="/logout.asp" class="btn btn-default btn-flat">登出</a>
+                    </div>
+                   
+                  </li>
+                </ul>-->
+              </li>
+              <li class="dropdown messages-menu">
+                <a href="../../../login.aspx">登出</a>      
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--正上方bar end---------------------------------------------------------------------------------------------------------------------------------->
+
+<!-- Left side column. contains the logo and sidebar -->
+<!--左方menu start---------------------------------------------------------------------------------------------------------------------------------------->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar" style="height: auto;">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="/img/user/head.png" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p><%=getU_Name()%></p>
+
+        <a href="#"><i class="fa fa-circle text-success"></i> 線上</a>
+      </div>
+    </div>
+    
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu" id="leftMenu"> 
+        <%=getLeftMenu()%>                      
+        <!--<li>
+            <a href="/index.aspx">
+                <i class="fa fa-dashboard"></i>
+                <span>資訊版</span> 
+            </a>
+        </li>
+
+                    
+  
+        <li class="treeview active">
+            <a href="">
+                <i class="fa fa-folder"></i>
+                <span>公用資料夾</span>
+                <i class="fa fa-angle-left pull-right"></i>
+
+            </a>
+            <ul class="treeview-menu menu-open" style="display: block;">
+
+                <li>
+                    <a href="">
+                        <i class="fa fa-circle-o"></i>
+                        公佈欄
+                        <small class="label pull-right bg-yellow">12</small>
+
+                    </a>
+                </li>
+            </ul>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="">
+                        <i class="fa fa-circle-o"></i>
+                        電子郵件
+                    </a>
+                </li>
+            </ul>
+            <ul class="treeview-menu">
+                <li>
+                    <a id="takeLeaveDetailHref" href="">
+                        <i class="fa fa-circle-o"></i>
+                        請假單
+                    </a>
+                </li>
+            </ul>
+        </li>-->
+     
+
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
+<!--左方menu end---------------------------------------------------------------------------------------------------------------------------------------->
+
+
+      <!-- Content Wrapper. Contains page content -->
+        <!-- 右方內頁 start--------------------------------------------------------------------------------------------------------------------------->
+      
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+         
+        </asp:ContentPlaceHolder> 
+        <!-- 右方內頁 end--------------------------------------------------------------------------------------------------------------------------- -->
+        <!-- /.content-wrapper -->
+        <!-- 
+      <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 2.0
+        </div>
+        <strong>華冠證券投資顧問股份有限公司</strong> 版權所有 
+      </footer>-->
+
+    </div><!-- ./wrapper -->
+    <!--查詢分機表start-->
+    <div id="extensionDialog" class="form-control" title="查詢分機表">
+        <div style="text-align:center" class="">
+            <select id="ComID" class="getComIDlistHtmlTagOption getEmpExtension form-control"></select>
+            <select id="U_MDEP" class="getMDEPlistHtmlTagOption getEmpExtension form-control"></select>
+        </div>
+       
+        <%--<table class="table">
+            <thead>
+                <tr>
+                    <th class="textAlignCenter">職稱</th>
+                    <th class="textAlignCenter">姓名</th>
+                    <th class="textAlignCenter">分機</th>
+                    <th class="textAlignCenter">電話</th>
+                </tr>
+            </thead>
+            <tbody id="extensionTb">
+            </tbody>
+        </table>
+        <div>====================================================================</div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="textAlignCenter">單位</th>
+                    <th class="textAlignCenter">代表號</th>
+                    <th class="textAlignCenter">節後電話</th>
+                    <th class="textAlignCenter">傳真1</th>
+                    <th class="textAlignCenter">傳真2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="textAlignCenter">營運事業部</td>
+                    <td class="textAlignCenter">營一 6630-3201
+                    <br />營二 6630-3237</td>
+                    <td class="textAlignCenter">6630-3203</td>
+                    <td class="textAlignCenter">6630-3218</td>
+                    <td class="textAlignCenter">6630-3219</td>
+                </tr>
+                <tr>
+                    <td class="textAlignCenter">財富管理部</td>
+                    <td class="textAlignCenter">6630-3221</td>
+                    <td class="textAlignCenter">6630-3229</td>
+                    <td class="textAlignCenter">3393-2040</td>
+                    <td class="textAlignCenter">6630-3245</td>
+                </tr>
+                <tr>
+                    <td class="textAlignCenter">投資推廣部</td>
+                    <td class="textAlignCenter">6630-3266</td>
+                    <td class="textAlignCenter">免費：080-900-8118<br />
+                    取授權：0800-069-119</td>
+                    <td class="textAlignCenter">2397-3938</td>
+                    <td class="textAlignCenter"></td>
+                </tr>
+                <tr>
+                    <td class="textAlignCenter">理財推廣部</td>
+                    <td class="textAlignCenter">6630-3231</td>
+                    <td class="textAlignCenter">6630-3233</td>
+                    <td class="textAlignCenter">6630-3235</td>
+                    <td class="textAlignCenter"></td>
+                </tr>
+                <tr>
+                    <td class="textAlignCenter">網路事業部</td>
+                    <td class="textAlignCenter">6632-1000</td>
+                    <td class="textAlignCenter">6632-1099</td>
+                    <td class="textAlignCenter">6632-1068</td>
+                    <td class="textAlignCenter"></td>
+                </tr>
+            </tbody>
+        </table>--%>
+    </div>
+    <!--查詢分機表end-->
+
+    <!-- Bootstrap 3.3.2 JS -->
+    <script src="<%=getRelativePath()%>bootstrap/js/bootstrap.min.js" type="text/javascript"></script>    
+    <!-- 第一 -->
+    <script src="<%=getRelativePath()%>plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="<%=getRelativePath()%>plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
+    <!-- 第二 -->
+    <!-- Slimscroll -->
+    <script src="<%=getRelativePath()%>plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <!-- AdminLTE App -->
+    <script src="<%=getRelativePath()%>dist/js/app.min.js" type="text/javascript"></script>
+    <!-- 第三 -->
+    <!-- jQuery UI 1.11.2 -->
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.min.js" type="text/javascript"></script>
+     <script src="<%=getRelativePath()%>js/ckeditor/ckeditor.js" type="text/javascript"></script> 
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        var check_M = $CommonTool.Check;
+        var date_M = $CommonTool.Date;
+        var emptyValue_M = "";
+        var today = new Date();
+        var todayY_M = today.getFullYear();
+        var todayM_M = today.getMonth()+1;
+        var todayD_M = today.getDate();
+        var yesToday = new Date();
+        yesToday.setDate(yesToday.getDate() - 1);
+        var yesTodayY_M = yesToday.getFullYear();
+        var yesTodayM_M = yesToday.getMonth()+1;
+        var yesTodayD_M = yesToday.getDate();
+        var getYesTodayDatepickerStr_M = function(){
+            return yesTodayM_M+"/"+yesTodayD_M+"/"+yesTodayY_M;
+        };
+        var getTodayDatepickerStr_M = function(){
+            return todayM_M+"/"+todayD_M+"/"+todayY_M;
+        };
+        var getTodayStr_M = function(){
+            return todayY_M+"/"+todayM_M+"/"+todayD_M;
+        };
+        var ajax_M = function (url, data, success,error) {
+            $.ajax({
+                url: url,
+                data: data,
+                method: 'POST',
+                success: success,
+                error: error
+            });
+        };
+        var roundDecimal_M = function(num, pos) {
+            var size = Math.pow(10, pos);
+            return Math.round(num * size) / size;
+        }
+        //金額千分位
+        var getMoneyFormat_M=function(num) {
+            var money = undefined;
+            money = num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            return money;
+        };
+        //補零
+        var PlusZero_M = function (str) {
+            var backStr = undefined;
+            if (str.length < 2) {
+                backStr = "0" + str;
+            } else {
+                backStr =  str;
+            }
+            return backStr;
+        };
+        var StringBuilder_M = function () {
+            this.buffer = [];
+            this.append = function (val) {
+                this.buffer.push(val);
+                return this;
+            };
+            this.appendWhiteSpace = function () {
+                this.buffer.push(" ");
+                return this;
+            };
+            this.appendAttr = function (key, val) {
+                this.buffer.push(key);
+                this.buffer.push("='");
+                this.buffer.push(val);
+                this.buffer.push("'");
+                return this;
+            };
+            this.toString = function () {
+                return this.buffer.join('');
+            };
+            this.release = function () {
+                while (this.buffer.length > 0) {
+                    this.buffer.pop();
+                }
+            };
+        };
+        var jsonParse_M = function (str) {
+            return JSON.parse(str);
+        };
+        var Log_M = function (str) {
+            console.log(str);
+        }
+        var disabledTrue_M = function (idOrClassName) {
+            $(idOrClassName).attr("disabled", "disabled");
+        };
+        var disabledFalse_M = function (idOrClassName) {
+            $(idOrClassName).attr("disabled", false);
+        };
+
+        var isEmptyStr = function (str) {
+            var f = false;
+            if (str === undefined || str === null || $.trim(str) === "" || str == "[]" || str == "[object Object]"|| str == []|| str == "null") {
+                f = true;
+            }
+            return f;
+        };
+        var attr_M = function (idOrClassName, attrName, val) {
+            if (!isEmptyStr(val)) {
+                $(idOrClassName).attr(attrName, val);
+            } else {
+                return $(idOrClassName).attr(attrName);
+            }
+        };
+        var val_M = function (idOrClassName, val) {
+            if (!isEmptyStr(val)) {
+                $(idOrClassName).val(val);
+            } else {
+                return $(idOrClassName).val();
+            }
+        };
+
+       
+        var addClass_M = function (idOrClassName, className) {
+            $(idOrClassName).addClass(className);
+        };
+        var removeClass_M = function (idOrClassName, className) {
+            $(idOrClassName).removeClass(className);
+        };
+
+        var append_M = function (idOrClassName, text) {
+            $(idOrClassName).append(text);
+        };
+        var text_M = function (idOrClassName, text) {
+            if (isEmptyStr(text)) {
+                return $(idOrClassName).text();
+            } else {
+                $(idOrClassName).text(text);
+            }
+        };
+        var html_M = function (idOrClassName, html) {
+            if (isEmptyStr(html)) {
+                return $(idOrClassName).html();
+            } else {
+                $(idOrClassName).html(html);
+            }
+        };
+        var empty_M = function (idOrClassName) {
+            $(idOrClassName).empty();
+        };
+        var show_M = function (idOrClassName) {
+            $(idOrClassName).show();
+        };
+        var hide_M = function (idOrClassName) {
+            $(idOrClassName).hide();
+        };
+        var onClick_M = function (idOrClassName, func) {
+            $(idOrClassName).on("click", func);
+        };
+        var onChange_M = function (idOrClassName, func) {
+            $(idOrClassName).on("change", func);
+        };
+        var change_M = function (idOrClassName) {
+            $(idOrClassName).change();
+        };
+        var unBind_M = function (idOrClassName) {
+            $(idOrClassName).unbind();
+        };
+        var click_M = function (idOrClassName) {
+            $(idOrClassName).click();//<===
+        };
+        var blockUI_M = function () {
+            $.blockUI();
+        };
+        var unBlockUI_M = function () {
+            $.unblockUI();
+        };
+        var split_M = function (str, splitChar, num) {
+            return str.split(splitChar)[num];
+        };
+        var getMoneyFormat_M = function (num) {
+            var money = undefined;
+            money = num.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+            return money;
+        };
+        var hasStr_M = function(str,chars){
+            var backBool = false;
+            if(str.toString().indexOf(chars) != -1){
+                backBool = true;
+            }
+            return backBool;
+        };
+
+        var printScreen_M = function (idOrClassName) {
+            document.body.innerHTML = $("#printArea").html();
+            window.print();
+        }
+        var printDialog_M = function (idOrClassName) {
+            document.body.innerHTML = $("#printDialogArea").html();
+            window.print();
+        }
+        var checkStrType_M = function(str){
+            var pattern = new RegExp("[\u4E00-\u9FA5]+");
+            var backStr ="";
+            if(pattern.test(str)){
+                backStr="中";
+            }else{
+                var pattern2 = new RegExp("[A-Za-z]+");
+                if(pattern2.test(str)){
+                    backStr="英";
+                }else{
+                    var pattern3 = new RegExp("[0-9]+");
+                    if(pattern3.test(str)){
+                        backStr="數";
+                    }
+                }
+            }
+            return backStr;
+        };
+
+        var isChinese_M = function(str){
+            var pattern = new RegExp("[\u4E00-\u9FA5]+");
+            return pattern.test(str);
+        };
+        var isEnglish_M = function(str){
+            var pattern = new RegExp("[A-Za-z]+");
+            return pattern.test(str);
+        };
+        var isNumber_M = function(str){
+            var pattern = new RegExp("[0-9]+");
+            return pattern.test(str);
+        };
+        var setSessionStorage_M = function(key,value){
+            sessionStorage[key]=value;
+        };
+        var getSessionStorage_M = function(key){
+            return sessionStorage[key];
+        };
+        var upload_M = function upload(id, fileNum,File_Folder,successFuc,errorFuc) {
+            var formData = new FormData();
+            var totalFiles = document.getElementById(id).files.length;
+            for (var i = 0; i < totalFiles; i++) {
+                var file = document.getElementById(id).files[i];
+                formData.append("id", id);
+                formData.append("File_num", fileNum);
+                formData.append("File_Folder", File_Folder);
+                formData.append("add_User", U_Num_M);
+                formData.append("add_ip", IP_M);
+                formData.append(id, file);
+            }
+            $.ajax({
+                type: 'post',
+                url: '../../../../uploadfile/uploadFileHandler.ashx',
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    successFuc();
+                },
+                error: function (error) {
+                    errorFuc();
+                }
+            });
+        }
+
+        //驗證是否有中文
+        var hasChineseCharTF_M = function (M_Text) {
+            var hasCineseTF = false;
+            var charCount = M_Text.length;
+            for (var i = 0; i < charCount; i++) {
+                if (isChinese_M(M_Text.charAt(i))) {
+                    hasCineseTF = true;
+                    break;
+                }
+            }
+            return hasCineseTF;
+        };
+
+        //計算簡訊字數
+        var countMessageChar_M = function (hasCinese, charCount) {
+            var Quotient = 0;//商
+            var Remainder = 0;//餘
+            var messageCount = 0;//餘
+            if (hasCinese) {
+                Quotient = parseInt(charCount / 70);
+                Remainder = charCount % 70;
+                if (Remainder > 0) {
+                    messageCount = Quotient + 1;
+                } else {
+                    messageCount = Quotient;
+                }
+            } else {
+                Quotient = parseInt(charCount / 137);
+                Remainder = charCount % 137;
+                if (Remainder > 0) {
+                    messageCount = Quotient + 1;
+                } else {
+                    messageCount = Quotient;
+                }
+            }
+            return messageCount;
+
+        };
+
+        var makeTrTag_M = function (sb, trInner, attr) {
+            sb.append("<tr ");
+            sb.append(attr);
+            sb.append(">");
+            sb.append(trInner);
+            sb.append("</tr>");
+        };
+
+        var makeImgTag_M = function (attr) {
+            var sb = new StringBuilder_M();
+            sb.append("<img ");
+            sb.append(attr);
+            sb.append("/>");
+            return sb.toString();
+        };
+        var makeTdTag_M = function (sb, tdInner, attr) {
+            sb.append("<td ");
+            sb.append(attr);
+            sb.append(">");
+            sb.append(tdInner);
+            sb.append("</td>");
+        };
+        var makeThTag_M = function (sb, thInner, attr) {
+            sb.append("<th ");
+            sb.append(attr);
+            sb.append(">");
+            sb.append(thInner);
+            sb.append("</th>");
+        };
+        var makeTb_M = function (dataArr, tbID, affterAppendFuc) {
+            var sbtr = new StringBuilder_M();
+            var sbtd = undefined;;
+            $.each(dataArr, function (i, v) {
+                sbtd = new StringBuilder_M();
+                $.each(v, function (ii, vv) {
+                    makeTdTag_M(sbtd, vv[0], vv[1]);
+                });
+                makeTrTag_M(sbtr, sbtd.toString());
+                sbtd = null;
+            });
+            append_M(tbID, sbtr.toString());
+            if (affterAppendFuc != null) {
+                affterAppendFuc();
+            };
+            
+        };
+
+
+        //使用者個人資料
+        var U_Num_M = "<%=getU_Num()%>";
+        var U_Name_M = "<%=getU_Name()%>";
+        var U_MDEP_M = "<%=getU_MDEP()%>";
+        var U_EMail_M = "<%=getU_EMail()%>";
+        var U_POSITION_M = "<%=getU_POSITION()%>";
+        var ComID_M = "<%=getComID()%>";
+        var ComLand_M = "<%=getComLand()%>";
+        var U_Leader_M = "<%=getU_Leader()%>";
+        var IP_M = "<%=getIP()%>";
+        var MenuMap_M = <%=getMenuMap()%>;
+        var CustomerDetailMENUno_M = "<%=getCustomerDetailMENUno()%>";
+        var ERPcustomerWebPayMENUno_M = "<%=getERPcustomerWebPayMENUno()%>";
+        var Punchcard_Tag ="<%=getPunchcard_Tag()%>";//是否打卡
+
+
+        //全體員工名單
+        var emplistJson_M = <%=getEmplist()%>;
+        var ComIDUMDEPlist_M = [["HG01", "0002", "營運事業一部A組"],
+                          ["HG01", "0006", "營運事業一部B組"],
+                          ["HG05", "0015", "營運事業二部A組"],
+                          ["HG05", "0016", "營運事業二部B組"],
+                          ["HG02", "0007", "投資推廣部A組"],
+                          ["HG02", "0008", "投資推廣部B組"],
+                          ["HG03", "0011", "財富管理部A組"],
+                          ["HG03", "0012", "財富管理部B組"],
+                          ["HG04", "0013", "理財推廣部A組"],
+                          ["HG04", "0014", "理財推廣部B組"],
+                          ["HG06", "0017", "網路事業部A組"],
+        ];
+        var getDepName_M = function(ComID,U_MDEP){
+            var backStr = undefined;
+           switch(ComID){
+                case "HG01":
+                    if(U_MDEP == "0002"){
+                        backStr="營運事業一部A組";
+                    }else if(U_MDEP == "0006"){
+                        backStr="營運事業一部B組";
+                    }
+                    break;
+                case "HG05":
+                    if(U_MDEP == "0015"){
+                        backStr="營運事業二部A組";
+                    }else if(U_MDEP == "0016"){
+                        backStr="營運事業二部B組";
+                    }
+                    break;
+                case "HG02":
+                    if(U_MDEP == "0007"){
+                        backStr="投資推廣部A組";
+                    }else if(U_MDEP == "0008"){
+                        backStr="投資推廣部B組";
+                    }
+                    break;
+                case "HG03":
+                    if(U_MDEP == "0011"){
+                        backStr="財富管理部A組";
+                    }else if(U_MDEP == "0012"){
+                        backStr="財富管理部B組";
+                    }
+                    break;
+                case "HG04":
+                    if(U_MDEP == "0013"){
+                        backStr="理財推廣部A組";
+                    }else if(U_MDEP == "0014"){
+                        backStr="理財推廣部B組";
+                    }
+                    break;
+                case "HG06":
+                    backStr="網路事業部A組";
+                    break;
+            }
+            return backStr;
+        };
+        var MasterPageHandlerUrl_G = "MasterPageHandler.ashx";
+        var UploadFileHandlerUrl_M = "../../../uploadFileHandler.ashx";
+
+        var checkUnum_M = function(){
+            if( isEmptyStr(U_Num_M)){
+                location.href="../../../../login.aspx";
+            }
+        };
+        var setPermission_M = function () {
+            if (!per_add_M) {
+                disabledTrue_M(".addPer");
+            }
+            if (!per_edit_M) {
+                disabledTrue_M(".editPer");
+            }
+            if (!per_del_M) {
+                disabledTrue_M(".delPer");
+            }
+            if (!per_query_M) {
+                disabledTrue_M(".qPer");
+            }
+            if (!per_read_M) {
+                disabledTrue_M(".readPer");
+            }
+        };
+
+        var openExtensionDialog = function(){
+            $("#extensionDialog").dialog('open');
+        };
+        var getEmpExtension = function(){
+            var U_MDEP = val_M("#U_MDEP");
+            var ComID = val_M("#ComID");
+            if(!isEmptyStr(ComID) && !isEmptyStr(U_MDEP)){
+                var data = "action=getEmpExtension"+ "&ComID=" + ComID + "&U_MDEP=" + U_MDEP  ;
+                var success = function (back) {
+                    empty_M("#extensionTb");
+                    if(!isEmptyStr(back)){
+                        var json = jsonParse_M(back);
+                        var sb = new StringBuilder_M();
+                
+                        $.each(json,function(i,v){
+                            sb.append("<tr>");
+                            sb.append("<td class='textAlignCenter'>");
+                            sb.append(v.U_ItemName);
+                            sb.append("</td>");
+                            sb.append("<td class='textAlignCenter'>");
+                            sb.append(v.empName);
+                            sb.append("</td>");
+                            sb.append("<td class='textAlignCenter'>");
+                            sb.append(v.U_Tel);
+                            sb.append("</td>");
+                            sb.append("<td class='textAlignCenter'>");
+                            sb.append(v.U_TelNumber);
+                            sb.append("</td>");
+                            sb.append("</tr>");
+                        });
+                        append_M("#extensionTb",sb.toString());
+                    }else{
+                        alert("查無資料");
+                    }
+                    
+                };
+                ajax_M(CommonHandlerUrl_M, data, success);//<====================
+            }
+            
+        };
+
+        var datetimeStrToDatepickerStr_M= function(dateStr){
+            var backStr = undefined;
+            var tempDate = dateStr.split('/');
+            backStr = tempDate[1] + "/" + tempDate[2] + "/" + tempDate[0];
+            return backStr;
+        };
+       
+        //取得使用者頁面權限
+        var getUserAuthority_M = function (startThisPage) {
+            //Log_M("MENU_no_G="+MENU_no_G);
+            var data = "menu_no=" + MENU_no_G + "&U_Num=" + U_Num_M + "&action=getUserAuthority";
+            var success = function (back) {
+                
+                var json = jsonParse_M(back);
+                $.each(json, function (i, v) {
+                    
+                    if (v.per_read == "1") {
+                        per_read_M = true;
+                    } else {
+                        per_read_M = false;
+                    }
+                    if (v.per_add == "1") {
+                        per_add_M = true;
+                    } else {
+                        per_add_M = false;
+                    }
+                    if (v.per_edit == "1") {
+                        per_edit_M = true;
+                    } else {
+                        per_edit_M = false;
+                    }
+                    if (v.per_del == "1") {
+                        per_del_M = true;
+                    } else {
+                        per_del_M = false;
+                    }
+                    if (v.per_query == "1") {
+                        per_query_M = true;
+                    } else {
+                        per_query_M = false;
+                        
+                    }
+                });
+                Log_M("per_read_M=" + per_read_M + "&per_add_M=" + per_add_M + "&per_edit_M=" + per_edit_M + "&per_del_M=" + per_del_M + "&per_query_M=" + per_query_M);
+                if (per_read_M) {
+                    startThisPage();//<===
+                } else {
+                    //alert("您的觀看權限尚未開放");
+                    startThisPage();//<===
+                    //location.href = RelativePath+"index.aspx?" + "U_Num=" + U_Num_M;
+                }
+            };
+            ajax_M(CommonHandlerUrl_M, data, success);//<====================
+        };
+        
+  
+        
+        $(function () {
+           
+           checkUnum_M();
+            //日期選擇器
+           $(".datepicker").datepicker();
+           
+           onClick_M("#openExtensionDialog",openExtensionDialog);
+           onChange_M(".getEmpExtension",getEmpExtension);
+           $('#extensionDialog').dialog({  //创建dialog，并设置为非自启动
+               autoOpen: false,
+               width: 600,
+               height: 400 
+           });
+            //取得公司option
+           //$Common.MITEM.getListHtmlTagOption(CommonHandlerUrl_M, ".getComIDlistHtmlTagOption", "COMID", "option");
+            //取得部門option
+           //$Common.MITEM.getListHtmlTagOption(CommonHandlerUrl_M, ".getMDEPlistHtmlTagOption", "DEPAR", "option");
+           if(!isEmptyStr(getSessionStorage_M("firstLevel"))){
+               $("#"+sessionStorage["firstLevel"]).addClass("active");
+              
+           }
+           if(!isEmptyStr(getSessionStorage_M("secondLevel"))){
+               $("#"+sessionStorage["secondLevel"]).addClass("active");
+              
+           }
+           if(!isEmptyStr(getSessionStorage_M("thirdLevel"))){
+               $("#"+sessionStorage["thirdLevel"]).addClass("active");
+              
+           }
+           
+           var tempId = "";
+           var firstLevelStatus = [["公用資料夾",false],["財富管理部",false],["理財推廣部",false],["資訊工程部",false],["營運事業二部",false],["網路事業部",false],["總管理部",false],["行政部",false],["營運事業一部",false],["投資推廣部",false],["投資管理部",false],["人事財務部",false],["系統維護",false],["網站維護",false]];
+           var pick = function(id){
+               Log_M(id);
+               $("."+id).attr("style","");
+           };
+            /*var pick = function(id){
+               var count = 0;
+               $(".all").attr("style","display: none;");
+               $.each(firstLevelStatus,function(i,v){
+                   
+                   if(v[0]==id){
+                       count+=1;
+                       Log_M(v[0]+"-"+v[1]+"-"+tempId);
+                       tempId = id;
+                       if(v[1]){
+                           $("."+id).attr("style","display: none;");
+                           v[1]=false;
+                       }else{
+                           $("."+id).attr("style","display: block;");
+       
+                           v[1]=true;
+                           
+                       }
+                       if(!isEmptyStr(tempId)){
+                           $.each(firstLevelStatus,function(ii,vv){
+                               if(tempId==vv[0]){
+                                   vv[1]=false;
+                               }
+                           });
+                       }
+                   }
+                   
+               });
+               if(count==0){
+                   $("."+id).attr("style","display: block;");
+               }
+           };*/
+
+           onClick_M(".firstLevel",function(){
+               var id = attr_M(this,"id");
+               setSessionStorage_M("firstLevel",id);
+               pick(id);
+           })
+           onClick_M(".secondLevel",function(){
+               setSessionStorage_M("secondLevel",attr_M(this,"id"));
+           })
+           onClick_M(".thirdLevel",function(){
+               setSessionStorage_M("thirdLevel",attr_M(this,"id"));
+           })
+           
+        })
+    </script>
+<div class="jvectormap-label"></div></body></html>
